@@ -20,6 +20,12 @@ define(
                 9: true
             },
 
+            initialize: function(args, options, row, column) {
+                this.row = row;
+                this.column = column;
+                this.block = 3 * Math.floor((row - 1) / 3) + Math.floor((column - 1) / 3)
+            },
+
             remaining: function() {
                 return Util.reduceIndices(function(s, idx){ 
                     if (this.attributes[idx]) return s + 1;
