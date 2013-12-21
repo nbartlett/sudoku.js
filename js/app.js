@@ -15,9 +15,7 @@ require(
     [
         'jquery', 
         'underscore',
-        'model/CellModel',
-        'collection/Board',
-        'view/BoardView'
+        'model/CellModel'
     ],
     function($, _, CellModel, Board, BoardView) {
 
