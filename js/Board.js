@@ -5,7 +5,9 @@ define(
          * This object is used to represent the entire board
          */
         var Board = function(cells) {
-            this.cells = _.reduce(cells, function(obj, cell) {
+            this.cells = cells;
+
+            this.cellMap = _.reduce(cells, function(obj, cell) {
                 var row = cell.row;
                 var column = cell.column;
                 obj[row] = obj[row] || {};
@@ -37,11 +39,12 @@ define(
             this.eachCell = function(f){ _.each(cells, f); };
 
             this.initialize = function(initialStateChars) {
-                var cells = this.cells;
+                var cellMap = this.cellMap;
                 var inner = function(row, column, chars) {
                     var head = parseInt(_.head(chars));
+
                     if (head > 0 && head < 10) {
-                        cells[row][column].setValue(head);
+                        cellMap[row][column].setValue(head);
                     }
 
                     if (column < 9) {
@@ -51,6 +54,7 @@ define(
                     }
                 };
                 inner(1, 1, initialStateChars);
+                _.each(this.cells, function(cell){ cell.resetState(); });
             }
         };
 

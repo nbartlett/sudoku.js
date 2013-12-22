@@ -8,6 +8,7 @@ define(
             
             // additional required elements are
             // row and column
+            //  state can be { 'unsolved', 'solved', 'primary', 'secondary' }
             defaults: { 
                 1: true,
                 2: true,
@@ -17,7 +18,8 @@ define(
                 6: true,
                 7: true,
                 8: true,
-                9: true
+                9: true,
+                state: 'unsolved'
             },
 
             initialize: function(args, options, row, column) {
@@ -50,6 +52,14 @@ define(
                             this.set(i, true);
                         }
                     }, this);
+                }
+            },
+
+            resetState: function() {
+                if (this.remaining().length == 1) {
+                    this.set('state', 'solved');
+                } else {
+                    this.set('state', 'unsolved');
                 }
             },
 

@@ -31,6 +31,15 @@
             div#board td.solved {
                 background-color: #7BD192;
             }
+
+            div#board td.primary {
+                background-color: red;
+            }
+
+            div#board td.secondary {
+                background-color: cyan;
+            }
+
         </style>
     </head>
         
@@ -222,6 +231,9 @@
                 </table>
             </div>
         </div>
+
+        <button id="button" type="button" class="btn btn-default">Move</button>
+        <div id="progress">In Progress</div>
 
         <script data-main="js/app" src="js/lib/require.js"></script>
     </body>

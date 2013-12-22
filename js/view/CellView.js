@@ -45,9 +45,8 @@ define(
             },
 
             render: function() { 
-                if (this.model.isSolved()) {
-                    this.$el.addClass('solved');
-                }
+                this.$el.removeClass(this.model.previous('state'));
+                this.$el.addClass(this.model.get('state'));
                 _.each(this.cellRenderers, function(f){ f(); });
             }
         });
