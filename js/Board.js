@@ -35,6 +35,23 @@ define(
             }, {});
 
             this.eachCell = function(f){ _.each(cells, f); };
+
+            this.initialize = function(initialStateChars) {
+                var cells = this.cells;
+                var inner = function(row, column, chars) {
+                    var head = parseInt(_.head(chars));
+                    if (head > 0 && head < 10) {
+                        cells[row][column].setValue(head);
+                    }
+
+                    if (column < 9) {
+                        inner(row, column + 1, _.tail(chars));
+                    } else if (row < 9) {
+                        inner(row + 1, 1, _.tail(chars));
+                    }
+                };
+                inner(1, 1, initialStateChars);
+            }
         };
 
         return Board;

@@ -1,4 +1,3 @@
-var bv
 require.config({ baseUrl: 'js/',
     paths: {
         'underscore': 'lib/underscore',
@@ -18,9 +17,10 @@ require(
         'Util',
         'Board',
         'model/CellModel',
-        'view/CellView'
+        'view/CellView',
+        'moves/NakedCandidates'
     ],
-    function($, _, Util, Board, CellModel, CellView) {
+    function($, _, Util, Board, CellModel, CellView, nakedCandidates) {
 
         var cells = _.flatten(Util.mapIndices(function(row){
             return Util.mapIndices(function(col) {
@@ -28,19 +28,20 @@ require(
             });
         }));
 
-        _.each(cells, function(cell) {
-            cell.setNotPossible(8);
-            cell.setNotPossible(2);
-            cell.setNotPossible(4);
-        });
-
-        cells[0].setValue(1);
-
-        _.each(cells, function(cell) {
+       _.each(cells, function(cell) {
             var el = $('div#board #row' + cell.row + '-col' + cell.column);
             new CellView({ model: cell, el: el});
         });
 
         var board = new Board(cells);
+        var initial = '807090602952861040306020598781934256264000009539602004600000421120046980408210065';
+        board.initialize(initial);
+
+        var z = nakedCandidates(board);
+        console.log(z);
+        console.log(z.length);
+
+
+
     }
 );
