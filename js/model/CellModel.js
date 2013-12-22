@@ -23,18 +23,20 @@ define(
             initialize: function(args, options, row, column) {
                 this.row = row;
                 this.column = column;
-                this.block = 3 * Math.floor((row - 1) / 3) + Math.floor((column - 1) / 3)
+                this.block = 3 * Math.floor((row - 1) / 3) + Math.floor((column - 1) / 3) + 1;
             },
 
             remaining: function() {
-                return Util.reduceIndices(function(s, idx){ 
-                    if (this.attributes[idx]) return s + 1;
-                    else return 1;
-                } , 0, this);
+                return Util.reduceIndices(function(lst, idx){ 
+                    if (this.attributes[idx]) {
+                        lst.push(idx);
+                        return lst;
+                    } else return lst;
+                } , [], this);
             },
 
             isSolved: function() {
-                return this.remaining() === 1;
+                return this.remaining().length == 1;
             }, 
 
             setValue: function(idx) {

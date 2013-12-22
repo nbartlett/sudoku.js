@@ -3,18 +3,226 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <style>
-            /*
-            div.ncampelia-img-gallery ul li {
-                display: inline;
+            div#container {
+                margin: 0 auto; 
             }
-            */
+
+            div#board table {
+                border-collapse: collapse;
+            }
+
+            div#board > table > tbody > tr > td {
+                border: 2px solid black;
+            }
+
+            div#board > table td > table td {
+                border: 1px solid gray;
+            }
+
+            div#board > table td > table td > table td {
+                border: none;
+                height: 20px; 
+                width: 20px;
+                text-align: center;
+            }
+
+            div#board td.solved {
+                background-color: #7BD192;
+            }
         </style>
     </head>
-
-    <div id="board"></div>
         
     <body>
+        <div id="container" class="col-md-12">
+            <div id="board">
+                <table>
+                    <!-- first three blocks -->
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row1-col1'></td>
+                                    <td id='row1-col2'></td>
+                                    <td id='row1-col3'></td>
+                                </tr>
+                                <tr>
+                                    <td id='row2-col1'></td>
+                                    <td id='row2-col2'></td>
+                                    <td id='row2-col3'></td>
+                                </tr>
+                                 <tr>
+                                    <td id='row3-col1'></td>
+                                    <td id='row3-col2'></td>
+                                    <td id='row3-col3'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row1-col4'></td>
+                                    <td id='row1-col5'></td>
+                                    <td id='row1-col6'></td>
+                                </tr>
+                                <tr>
+                                    <td id='row2-col4'></td>
+                                    <td id='row2-col5'></td>
+                                    <td id='row2-col6'></td>
+                                </tr>
+                                 <tr>
+                                    <td id='row3-col4'></td>
+                                    <td id='row3-col5'></td>
+                                    <td id='row3-col6'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row1-col7'></td>
+                                    <td id='row1-col8'></td>
+                                    <td id='row1-col9'></td>
+                                </tr>
+                                <tr>
+                                    <td id='row2-col7'></td>
+                                    <td id='row2-col8'></td>
+                                    <td id='row2-col9'></td>
+                                </tr>
+                                 <tr>
+                                    <td id='row3-col7'></td>
+                                    <td id='row3-col8'></td>
+                                    <td id='row3-col9'></td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    <!-- second three blocks -->
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row4-col1'></td>
+                                    <td id='row4-col2'></td>
+                                    <td id='row4-col3'></td>
+                                </tr>
+                                <tr>
+                                    <td id='row5-col1'></td>
+                                    <td id='row5-col2'></td>
+                                    <td id='row5-col3'></td>
+                                </tr>
+                                 <tr>
+                                    <td id='row6-col1'></td>
+                                    <td id='row6-col2'></td>
+                                    <td id='row6-col3'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row4-col4'></td>
+                                    <td id='row4-col5'></td>
+                                    <td id='row4-col6'></td>
+                                </tr>           
+                                <tr>            
+                                    <td id='row5-col4'></td>
+                                    <td id='row5-col5'></td>
+                                    <td id='row5-col6'></td>
+                                </tr>           
+                                 <tr>           
+                                    <td id='row6-col4'></td>
+                                    <td id='row6-col5'></td>
+                                    <td id='row6-col6'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row4-col7'></td>
+                                    <td id='row4-col8'></td>
+                                    <td id='row4-col9'></td>
+                                </tr>           
+                                <tr>            
+                                    <td id='row5-col7'></td>
+                                    <td id='row5-col8'></td>
+                                    <td id='row5-col9'></td>
+                                </tr>           
+                                 <tr>           
+                                    <td id='row6-col7'></td>
+                                    <td id='row6-col8'></td>
+                                    <td id='row6-col9'></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- third three blocks -->
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row7-col1'></td>
+                                    <td id='row7-col2'></td>
+                                    <td id='row7-col3'></td>
+                                </tr>
+                                <tr>
+                                    <td id='row8-col1'></td>
+                                    <td id='row8-col2'></td>
+                                    <td id='row8-col3'></td>
+                                </tr>
+                                 <tr>
+                                    <td id='row9-col1'></td>
+                                    <td id='row9-col2'></td>
+                                    <td id='row9-col3'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row7-col4'></td>
+                                    <td id='row7-col5'></td>
+                                    <td id='row7-col6'></td>
+                                </tr>           
+                                <tr>            
+                                    <td id='row8-col4'></td>
+                                    <td id='row8-col5'></td>
+                                    <td id='row8-col6'></td>
+                                </tr>           
+                                 <tr>           
+                                    <td id='row9-col4'></td>
+                                    <td id='row9-col5'></td>
+                                    <td id='row9-col6'></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td id='row7-col7'></td>
+                                    <td id='row7-col8'></td>
+                                    <td id='row7-col9'></td>
+                                </tr>           
+                                <tr>            
+                                    <td id='row8-col7'></td>
+                                    <td id='row8-col8'></td>
+                                    <td id='row8-col9'></td>
+                                </tr>           
+                                 <tr>           
+                                    <td id='row9-col7'></td>
+                                    <td id='row9-col8'></td>
+                                    <td id='row9-col9'></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
         <script data-main="js/app" src="js/lib/require.js"></script>
     </body>
 </html>

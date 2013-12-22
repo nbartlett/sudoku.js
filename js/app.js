@@ -15,36 +15,32 @@ require(
     [
         'jquery', 
         'underscore',
-        'model/CellModel'
+        'Util',
+        'Board',
+        'model/CellModel',
+        'view/CellView'
     ],
-    function($, _, CellModel) {
+    function($, _, Util, Board, CellModel, CellView) {
 
-        var cell = new CellModel({}, {}, 4, 4); //, 3, 4);
-        console.log(cell);
-        cell.setNotPossible(2);
-
-
-        /*
-        var indices = _.map(_.range(9), function(idx){ return idx + 1; });
-        var cells = _.flatten(_.map(indices, function(row){
-            return _.map(indices, function(col){
-                return new CellModel({ row: row, column: col });
+        var cells = _.flatten(Util.mapIndices(function(row){
+            return Util.mapIndices(function(col) {
+                return new CellModel({}, {},  row, col);
             });
         }));
-        */
 
-        /*
+        _.each(cells, function(cell) {
+            cell.setNotPossible(8);
+            cell.setNotPossible(2);
+            cell.setNotPossible(4);
+        });
+
+        cells[0].setValue(1);
+
+        _.each(cells, function(cell) {
+            var el = $('div#board #row' + cell.row + '-col' + cell.column);
+            new CellView({ model: cell, el: el});
+        });
+
         var board = new Board(cells);
-
-        console.log(board.rows);
-        console.log(board.columns);
-        console.log(board.blocks);
-
-        console.log(board.map(function(cell){ return cell.remaining() }));
-        board.map(function(cell){ cell.setValue(2) });
-        console.log(board.map(function(cell){ return cell.remaining() }));
-
-        bv = new BoardView({ el: '#board', model: board })
-        */
     }
 );
